@@ -11,13 +11,13 @@ class NetworkDataFetcher
 {
     private var networkService = NetworkService()
     
-    func fetchTrack(trackName: String, completion: @escaping (Welcome?) -> Void) {
+    func fetchTrack(trackName: String, completion: @escaping (Results?) -> Void) {
         networkService.request(trackName: trackName) { data, error in
             if let error = error {
                 print("Error recieved requesting data: \(error.localizedDescription)")
                 completion(nil)
             }
-            let decode = self.decodeJSON(type: Welcome.self, from: data)
+            let decode = self.decodeJSON(type: Results.self, from: data)
             completion(decode)
         }
     }

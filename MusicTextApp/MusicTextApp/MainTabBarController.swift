@@ -25,6 +25,12 @@ class MainTabBarController: UITabBarController
         let navigationVC = UINavigationController(rootViewController: rootViewController)
         navigationVC.tabBarItem.title = title
         navigationVC.tabBarItem.image = image
+        
+        let titleTextAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.systemBlue,
+            .font: UIFont.preferredFont(forTextStyle: .largeTitle)
+            ]
+        navigationVC.navigationBar.titleTextAttributes = titleTextAttributes
         return navigationVC
     }
 }

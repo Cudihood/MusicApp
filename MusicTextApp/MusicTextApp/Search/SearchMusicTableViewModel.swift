@@ -9,30 +9,39 @@ import UIKit
 
 protocol SearchMusicTableViewModelProtocol
 {
-    var tracks: [Result] { get }
+    var tracks: [Track] { get set }
+    var isLoading: Bool { get set }
     var tracksUpdateHandler: (() -> Void)? { get set }
-    
+    var updateLoadingState: (() -> Void)? { get set }
     func fetchTrack(trackName: String)
 }
 
 final class SearchMusicTableViewModel: SearchMusicTableViewModelProtocol
 {
-    private var networkDataFetcher = NetworkDataFetcher()
+    var tracksUpdateHandler: (() -> Void)?
+    var updateLoadingState:(() -> Void)?
     
-    var tracks = [Result]() {
+    var tracks = [Track]() {
         didSet{
             tracksUpdateHandler?()
         }
     }
- 
-    var tracksUpdateHandler: (() -> Void)?
+    
+    var isLoading: Bool = false {
+        didSet {
+            updateLoadingState?()
+        }
+    }
+    
+    private var networkDataFetcher = NetworkDataFetcher()
     
     func fetchTrack(trackName: String) {
         networkDataFetcher.fetchTrack(trackName: trackName) { [weak self] (searchResults) in
-            guard let self = self, let fetchedTrack = searchResults else { return }
-            if let result = fetchedTrack.results {
-                self.tracks = result
+            guard let self = self, let fetchedTrack = searchResults else {
+                self?.tracks = []
+                return
             }
+            self.tracks = fetchedTrack.results
         }
     }
 }

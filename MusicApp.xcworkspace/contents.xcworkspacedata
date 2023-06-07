@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:MusicTextApp/MusicTextApp.xcodeproj">
+      location = "group:/Users/daniilmordovin/MusicTextApp/MusicTextApp/MusicApp.xcodeproj">
    </FileRef>
 </Workspace>

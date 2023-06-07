@@ -13,8 +13,8 @@ struct SearchMusicTableViewCellModel
     let artist: String?
     let track: String?
     
-    init(model: Result?) {
-        self.image = UIImage()
+    init(model: Track?) {
+        self.image = UIImage(systemName: "person.fill")
         self.artist = model?.artistName
         self.track = model?.trackName
         

@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Constans {
+enum Constants {
     static let dynamicTextColor = UIColor { (traitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .dark {
             return UIColor.white

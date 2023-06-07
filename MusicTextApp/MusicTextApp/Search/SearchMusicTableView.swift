@@ -14,8 +14,6 @@ final class SearchMusicTableView: UIView
     
     private var model: SearchMusicTableViewModelProtocol?
     
-//    private var model:
-    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -30,26 +28,40 @@ final class SearchMusicTableView: UIView
         return view
     }()
     
+    private let textLable: UILabel = {
+        let lable = UILabel()
+        lable.textAlignment = .center
+        lable.textColor = Constants.dynamicTextColor
+        lable.font = UIFont.preferredFont(forTextStyle: .title1)
+        lable.isHidden = true
+        lable.text = "Нет результатов"
+        return lable
+    }()
+    
     init() {
         super.init(frame: .zero)
         configure()
     }
     
     func setModel(model: SearchMusicTableViewModelProtocol?) {
-        if let model = model {
+//        if let model = model {
             self.model = model
-            activityIndicator.stopAnimating()
-        } else {
-            self.model = nil
+//        } else {
+//            activityIndicator.stopAnimating()
+//        }
+    }
+    
+    func showActivityIndicator(swow: Bool) {
+        if swow {
             activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
         }
-//        tableView.reloadData()
     }
     
     func bindViewModel() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            
         }
     }
     
@@ -69,11 +81,16 @@ extension SearchMusicTableView: UITableViewDelegate
 extension SearchMusicTableView: UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model?.tracks.count ?? 0
+        guard let count = model?.tracks.count else { return 0 }
+        if count > 0 || activityIndicator.isAnimating {
+            textLable.isHidden = true
+        } else {
+            textLable.isHidden = false
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if model?.tracks.count > 0
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchMusicTableViewCell.reuseIdentifier) as? SearchMusicTableViewCell else { return UITableViewCell() }
         let model = SearchMusicTableViewCellModel(model: model?.tracks[indexPath.row])
         cell.setCell(model: model)
@@ -85,28 +102,24 @@ private extension SearchMusicTableView
 {
     func configure() {
         buildUI()
-//        bindViewModel()
     }
     
     func buildUI() {
         self.addSubview(self.tableView)
         self.addSubview(self.activityIndicator)
+        self.addSubview(self.textLable)
         
         tableView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
             make.verticalEdges.equalToSuperview()
         }
         
+        textLable.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
         activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
     }
-    
-//    func bindViewModel() {
-//        model?.tracksUpdateHandler = {
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        }
-//    }
 }

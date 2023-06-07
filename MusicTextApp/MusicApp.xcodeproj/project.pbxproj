@@ -71,6 +71,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F7A89F02A308610005877D7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8F9ECE922A26394300EB0255 /* AppDelegate.swift */,
+				8F9ECE942A26394300EB0255 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8F7A89F12A308664005877D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8F9ECE9B2A26394500EB0255 /* Assets.xcassets */,
+				8F9ECE9D2A26394500EB0255 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		8F7C52472A27686E00EC29F1 /* Likes */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,18 +141,16 @@
 		8F9ECE912A26394300EB0255 /* MusicTextApp */ = {
 			isa = PBXGroup;
 			children = (
+				8F7A89F02A308610005877D7 /* Application */,
 				8F7C52532A28A19E00EC29F1 /* BaseRouter.swift */,
 				8F7C524D2A278D9000EC29F1 /* Constants.swift */,
 				8F7C524F2A289B0900EC29F1 /* MainTabBarController.swift */,
 				8F7C525C2A28D71B00EC29F1 /* MusicModel.swift */,
 				8F9ECEB52A265F7B00EB0255 /* Networking */,
-				8F7C52552A28A67900EC29F1 /* Detail */,
-				8F9ECE922A26394300EB0255 /* AppDelegate.swift */,
-				8F9ECE942A26394300EB0255 /* SceneDelegate.swift */,
 				8F7C52482A27687700EC29F1 /* Search */,
 				8F7C52472A27686E00EC29F1 /* Likes */,
-				8F9ECE9B2A26394500EB0255 /* Assets.xcassets */,
-				8F9ECE9D2A26394500EB0255 /* LaunchScreen.storyboard */,
+				8F7C52552A28A67900EC29F1 /* Detail */,
+				8F7A89F12A308664005877D7 /* Resources */,
 				8F9ECEA02A26394500EB0255 /* Info.plist */,
 			);
 			path = MusicTextApp;
@@ -187,7 +203,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8F9ECE8A2A26394300EB0255 /* Build configuration list for PBXProject "MusicTextApp" */;
+			buildConfigurationList = 8F9ECE8A2A26394300EB0255 /* Build configuration list for PBXProject "MusicApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -388,8 +404,7 @@
 				INFOPLIST_FILE = MusicTextApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -415,8 +430,7 @@
 				INFOPLIST_FILE = MusicTextApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,7 +447,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8F9ECE8A2A26394300EB0255 /* Build configuration list for PBXProject "MusicTextApp" */ = {
+		8F9ECE8A2A26394300EB0255 /* Build configuration list for PBXProject "MusicApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F9ECEA12A26394500EB0255 /* Debug */,

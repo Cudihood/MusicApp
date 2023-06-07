@@ -22,7 +22,7 @@ final class SearchMusicTableViewCell: UITableViewCell
     
     private let artistLable: UILabel = {
         let lable = UILabel()
-        lable.textColor = Constans.dynamicTextColor
+        lable.textColor = Constants.dynamicTextColor
         lable.font = UIFont.preferredFont(forTextStyle: .title2)
         lable.textAlignment = .left
         return lable
@@ -30,7 +30,7 @@ final class SearchMusicTableViewCell: UITableViewCell
     
     private let trackLable: UILabel = {
         let lable = UILabel()
-        lable.textColor = Constans.dynamicTextColor
+        lable.textColor = Constants.dynamicTextColor
         lable.font = UIFont.preferredFont(forTextStyle: .title1)
         lable.textAlignment = .left
         return lable
@@ -66,8 +66,8 @@ private extension SearchMusicTableViewCell
         
         imageFilmView.snp.makeConstraints { make in
             make.top.bottom.left.equalToSuperview().inset(16)
-            make.height.equalTo(70)
-            make.width.equalTo(70)
+            make.height.equalTo(60)
+            make.width.equalTo(60)
         }
         
         trackLable.snp.makeConstraints { make in

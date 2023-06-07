@@ -34,6 +34,13 @@ extension SearchMusicTableViewController: UISearchResultsUpdating, UISearchBarDe
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //Если ввесли S то будет ошибка 404 и будет отображен активити индикатор и лейбл
+        
+        viewModel?.tracks = []
+        customView.setModel(model: viewModel)
+        
+        customView.showActivityIndicator(swow: true)
+//        print(searchBar.text)
         viewModel?.fetchTrack(trackName: searchBar.text ?? "")
         customView.setModel(model: viewModel)
     }
@@ -62,6 +69,7 @@ private extension SearchMusicTableViewController
     
     func setupTrackUpdateHandler() {
         viewModel?.tracksUpdateHandler = {
+            self.customView.showActivityIndicator(swow: false)
             self.customView.bindViewModel()
         }
     }
