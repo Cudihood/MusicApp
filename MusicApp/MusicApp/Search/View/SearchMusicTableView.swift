@@ -24,7 +24,7 @@ final class SearchMusicTableView: UIView
     
     private let activityIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
-        view.color = Constants.Color.systemBlue
+        view.color = Constants.Color.blue
         return view
     }()
     

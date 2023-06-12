@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class LikesCollectionCell: UICollectionViewCell
+final class LikesCollectionCell: UICollectionViewCell
 {
     static let reuseIdentifier = "Cell"
     
@@ -67,7 +67,7 @@ private extension LikesCollectionCell
     }
     
     func configure() {
-        self.backgroundColor = Constants.Color.systemBackground
+        self.backgroundColor = Constants.Color.background
         buildUI()
     }
     

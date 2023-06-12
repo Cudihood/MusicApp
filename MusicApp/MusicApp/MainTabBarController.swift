@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController
+final class MainTabBarController: UITabBarController
 {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class MainTabBarController: UITabBarController
         navigationVC.tabBarItem.image = image
         
         let titleTextAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: Constants.Color.systemBlue,
+            .foregroundColor: Constants.Color.blue,
             .font: UIFont.preferredFont(forTextStyle: .title1)
             ]
         navigationVC.navigationBar.titleTextAttributes = titleTextAttributes

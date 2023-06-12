@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 import Kingfisher
 
-class TrackDataManager
+final class TrackDataManager
 {
     private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CoreData")

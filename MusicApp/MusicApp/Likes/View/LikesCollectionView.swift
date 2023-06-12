@@ -68,7 +68,7 @@ extension LikesCollectionView: UICollectionViewDataSource
 private extension LikesCollectionView
 {
     func configure() {
-        self.backgroundColor = Constants.Color.systemBackground
+        self.backgroundColor = Constants.Color.background
         self.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(self.safeAreaLayoutGuide)

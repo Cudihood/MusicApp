@@ -13,17 +13,13 @@ protocol TrackRepositoryProtocol
     func loadTracks() -> [Track]?
     func deleteTrack(track: Track)
     func searchTrack(trackName: String, comletion: @escaping (Results?) -> Void)
+    func isTrackSaved(track: Track) -> Bool
 }
 
 final class TrackRepository: TrackRepositoryProtocol
 {
     private let networkDataFetcher = NetworkDataFetcher()
     private let trackDataManager = TrackDataManager()
-    
-//    init(networkDataFetcher: NetworkDataFetcher, trackDataManager: TrackDataManager) {
-//        self.networkDataFetcher = networkDataFetcher
-//        self.trackDataManager = trackDataManager
-//    }
     
     func saveTrack(track: Track) {
         trackDataManager.saveTrack(track: track)
@@ -38,15 +34,31 @@ final class TrackRepository: TrackRepositoryProtocol
     }
     
     func searchTrack(trackName: String, comletion: @escaping (Results?) -> Void) {
-        networkDataFetcher.fetchTrack(trackName: trackName) { results in
-            comletion(results)
+        networkDataFetcher.fetchTrack(trackName: trackName) { data in
+            let decode = self.decodeJSON(type: Results.self, from: data)
+            comletion(decode)
         }
     }
     
-    private func isTrackSaved(track: Track) -> Bool {
+    func isTrackSaved(track: Track) -> Bool {
         if let savedTracks = trackDataManager.loadTracks() {
             return savedTracks.contains { $0.trackID == track.trackID }
         }
         return false
+    }
+}
+
+extension TrackRepository {
+    private func decodeJSON<T: Decodable>(type: T.Type, from data: Data?) -> T? {
+        let decoder = JSONDecoder()
+        guard let data = data else { return nil }
+        //        let str = String(decoding: data, as: UTF8.self)
+        do {
+            let objects = try decoder.decode(type, from: data)
+            return objects
+        } catch let jsonError {
+            print("Failed to decode JSON", jsonError)
+            return nil
+        }
     }
 }

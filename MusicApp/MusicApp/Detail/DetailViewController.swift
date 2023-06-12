@@ -14,6 +14,7 @@ final class DetailViewController: UIViewController
     
     private let likeButton: UIButton = {
         let button = UIButton(type: .system)
+        button.tintColor = Constants.Color.red
         button.setImage(UIImage(systemName: "heart"), for: .normal)
         return button
     }()
@@ -34,6 +35,10 @@ final class DetailViewController: UIViewController
         configure()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        model.updateLikeStatus()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -42,7 +47,7 @@ final class DetailViewController: UIViewController
 private extension DetailViewController
 {
     func configure() {
-        self.view.backgroundColor = Constants.Color.systemBackground
+        self.view.backgroundColor = Constants.Color.background
         likeButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         let barButton = UIBarButtonItem(customView: likeButton)
         navigationItem.rightBarButtonItem = barButton

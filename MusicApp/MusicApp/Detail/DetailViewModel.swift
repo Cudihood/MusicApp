@@ -15,10 +15,11 @@ protocol DetailViewModelProtocol
     var trackLikeUpdateHandler: ((Bool) -> Void)? { get set }
     
     func likeButtonTapped()
+    func updateLikeStatus()
     func fetchImageTrack(completion: @escaping (UIImage?) -> Void)
 }
 
-class DetailViewModel: DetailViewModelProtocol
+final class DetailViewModel: DetailViewModelProtocol
 {
     var trackLikeUpdateHandler: ((Bool) -> Void)?
     var selectedTrack: Track
@@ -35,6 +36,10 @@ class DetailViewModel: DetailViewModelProtocol
         self.selectedTrack = selectedTrack
     }
     
+    func updateLikeStatus() {
+        trackIsLiked = repository.isTrackSaved(track: selectedTrack)
+    }
+
     func likeButtonTapped() {
         if trackIsLiked {
             repository.deleteTrack(track: selectedTrack)
@@ -61,36 +66,3 @@ class DetailViewModel: DetailViewModelProtocol
         }
     }
 }
-
-
-//let artistID: Int?
-////    let collectionID: Int?
-//let trackID: Int?
-//let artistName: String?
-////    let collectionName: String?
-//let trackName: String?
-//let artistViewURL: String?
-////    let collectionViewURL: String?
-//let trackViewURL: String?
-//let previewURL: String?
-//let artworkUrl100: String?
-//let releaseDate: String?
-//let trackTimeMillis: Int?
-//let primaryGenreName: String?
-//
-//init(track: Track) {
-//    self.artistID = track.artistID
-////        self.collectionID = track.collectionID
-//    self.trackID = track.trackID
-//    self.artistName = track.artistName
-////        self.collectionName = track.collectionName
-//    self.trackName = track.trackName
-//    self.artistViewURL = track.artistViewURL
-////        self.collectionViewURL = track.collectionViewURL
-//    self.trackViewURL = track.trackViewURL
-//    self.previewURL = track.previewURL
-//    self.artworkUrl100 = track.artworkUrl100
-//    self.releaseDate = track.releaseDate
-//    self.trackTimeMillis = track.trackTimeMillis
-//    self.primaryGenreName = track.primaryGenreName
-//}

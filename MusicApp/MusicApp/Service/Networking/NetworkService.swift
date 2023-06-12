@@ -7,14 +7,14 @@
 
 import Foundation
 
-class NetworkService
+final class NetworkService
 {
     let baseURL = Constants.baseURL
     
     func request(trackName: String, completion: @escaping (Data?, Error?) -> Void) {
         guard let escapedTrackName = trackName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
               let url = URL(string: "\(baseURL)\(escapedTrackName)") else {
-            let error = Constants.Error.errorConverting
+            let error = Message.Error.errorConverting
             completion(nil, error)
             return
         }
@@ -34,23 +34,23 @@ class NetworkService
                 }
                 
                 if let response = response as? HTTPURLResponse {
-                    let statusCode = Constants.ResponseСode(statusCode: response.statusCode)
+                    let statusCode = Message.ResponseСode(statusCode: response.statusCode)
                     
                     switch statusCode {
                     case .success:
                         completion(data, nil)
                     case .serviceUnavailable:
-                        let error = Constants.Error.errorHTTP(statusCode: response.statusCode)
+                        let error = Message.Error.errorHTTP(statusCode: response.statusCode)
                         // запрос через алерт
                         let task = self.createDataTask(from: request, completion: completion)
                         task.resume()
                     default:
-                        let error = Constants.Error.errorHTTP(statusCode: response.statusCode)
+                        let error = Message.Error.errorHTTP(statusCode: response.statusCode)
                         completion(nil, error)
                     }
                     
                 } else {
-                    let error = Constants.Error.errorInvalidResponse
+                    let error = Message.Error.errorInvalidResponse
                     completion(nil, error)
                 }
             }

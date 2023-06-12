@@ -54,7 +54,7 @@ final class DetailView: UIView
 private extension DetailView
 {
     func configure() {
-        self.backgroundColor = Constants.Color.systemBackground
+        self.backgroundColor = Constants.Color.background
         configureLabels()
         buildUI()
     }
@@ -117,7 +117,6 @@ private extension DetailView
                 }
             }
         }
-        
     }
     
     func makeSectionLable(with name: String) -> UILabel {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LikesCollectionViewController: UIViewController
+final class LikesCollectionViewController: UIViewController
 {
     private var viewModel: LikesCollectionViewModelProtocol?
     private var router: LikesCollectionRouterProtocol?
