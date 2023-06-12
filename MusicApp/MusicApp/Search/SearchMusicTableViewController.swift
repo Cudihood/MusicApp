@@ -15,6 +15,8 @@ final class SearchMusicTableViewController: UIViewController
     private let searchController = UISearchController()
     private let customView = SearchMusicTableView()
     
+//    var addAlertHandler: (() -> Void)?
+    
     override func loadView() {
         super.loadView()
         self.view = customView
@@ -43,6 +45,9 @@ extension SearchMusicTableViewController: UISearchBarDelegate
         customView.setModel(model: viewModel)
         
         customView.showActivityIndicator(swow: true)
+        // Тут норм задавать?
+        viewModel?.lastSearchedTrackName = searchBar.text
+        //
         viewModel?.fetchTrack(trackName: searchBar.text ?? "")
         customView.setModel(model: viewModel)
     }
@@ -60,6 +65,7 @@ private extension SearchMusicTableViewController
         setupTapItemHandlers()
         customView.setModel(model: viewModel)
         setupTrackUpdateHandler()
+        setupPresentAlertHandler()
     }
     
     func setupTapItemHandlers() {
@@ -73,6 +79,12 @@ private extension SearchMusicTableViewController
         viewModel?.tracksUpdateHandler = {
             self.customView.showActivityIndicator(swow: false)
             self.customView.bindViewModel()
+        }
+    }
+    
+    func setupPresentAlertHandler() {
+        viewModel?.presentAlertHandler = { alert in
+            self.present(alert, animated: true)
         }
     }
 }

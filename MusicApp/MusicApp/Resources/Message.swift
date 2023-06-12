@@ -18,7 +18,7 @@ enum Message
                                    userInfo: [NSLocalizedDescriptionKey: "Invalid HTTP Response"])
         
         static func errorHTTP(statusCode: Int) -> NSError{
-            NSError(domain: "com.network.app", code: statusCode, userInfo: [NSLocalizedDescriptionKey: "HTTP Error: \(ResponseСode.init(statusCode: statusCode).rawValue)"])
+            NSError(domain: "com.network.app", code: statusCode, userInfo: [NSLocalizedDescriptionKey: "\(ResponseСode.init(statusCode: statusCode).rawValue)"])
         }
     }
     

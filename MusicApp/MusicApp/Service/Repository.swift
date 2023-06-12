@@ -12,7 +12,7 @@ protocol TrackRepositoryProtocol
     func saveTrack(track: Track)
     func loadTracks() -> [Track]?
     func deleteTrack(track: Track)
-    func searchTrack(trackName: String, comletion: @escaping (Results?) -> Void)
+    func searchTrack(trackName: String, comletion: @escaping (Results?, Error?) -> Void)
     func isTrackSaved(track: Track) -> Bool
 }
 
@@ -33,10 +33,13 @@ final class TrackRepository: TrackRepositoryProtocol
         trackDataManager.deleteTrack(track: track)
     }
     
-    func searchTrack(trackName: String, comletion: @escaping (Results?) -> Void) {
-        networkDataFetcher.fetchTrack(trackName: trackName) { data in
+    func searchTrack(trackName: String, comletion: @escaping (Results?, Error?) -> Void) {
+        networkDataFetcher.fetchTrack(trackName: trackName) { data, error in
+            if let error = error {
+                comletion(nil, error)
+            }
             let decode = self.decodeJSON(type: Results.self, from: data)
-            comletion(decode)
+            comletion(decode, nil)
         }
     }
     

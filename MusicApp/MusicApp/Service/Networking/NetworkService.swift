@@ -35,20 +35,21 @@ final class NetworkService
                 
                 if let response = response as? HTTPURLResponse {
                     let statusCode = Message.ResponseСode(statusCode: response.statusCode)
-                    
+                    //
+                    //Как тут правильно обрабоать ошибки?
                     switch statusCode {
                     case .success:
                         completion(data, nil)
-                    case .serviceUnavailable:
-                        let error = Message.Error.errorHTTP(statusCode: response.statusCode)
-                        // запрос через алерт
-                        let task = self.createDataTask(from: request, completion: completion)
-                        task.resume()
+//                    case .serviceUnavailable:
+//                        let error = Message.Error.errorHTTP(statusCode: response.statusCode)
+//                        // запрос через алерт
+//                        let task = self.createDataTask(from: request, completion: completion)
+//                        task.resume()
                     default:
                         let error = Message.Error.errorHTTP(statusCode: response.statusCode)
                         completion(nil, error)
                     }
-                    
+                //Нужен ли тут else?
                 } else {
                     let error = Message.Error.errorInvalidResponse
                     completion(nil, error)
