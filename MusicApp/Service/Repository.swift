@@ -7,8 +7,7 @@
 
 import Foundation
 
-protocol TrackRepositoryProtocol
-{
+protocol TrackRepositoryProtocol {
     func saveTrack(track: Track)
     func loadTracks() -> [Track]?
     func deleteTrack(track: Track)
@@ -16,9 +15,8 @@ protocol TrackRepositoryProtocol
     func isTrackSaved(track: Track) -> Bool
 }
 
-final class TrackRepository: TrackRepositoryProtocol
-{
-    private let networkDataFetcher = NetworkDataFetcher()
+final class TrackRepository: TrackRepositoryProtocol {
+    private let networkService = NetworkService()
     private let trackDataManager = TrackDataManager()
     
     func saveTrack(track: Track) {
@@ -34,7 +32,7 @@ final class TrackRepository: TrackRepositoryProtocol
     }
     
     func searchTrack(trackName: String, comletion: @escaping (Results?, Error?) -> Void) {
-        networkDataFetcher.fetchTrack(trackName: trackName) { data, error in
+        networkService.request(trackName: trackName) { data, error in
             if let error = error {
                 comletion(nil, error)
             }
@@ -44,15 +42,15 @@ final class TrackRepository: TrackRepositoryProtocol
     }
     
     func isTrackSaved(track: Track) -> Bool {
-        if let savedTracks = trackDataManager.loadTracks() {
-            return savedTracks.contains { $0.trackID == track.trackID }
+        guard let trackID = track.trackID else {
+            return false
         }
-        return false
+        return trackDataManager.searchTrackByID(trackID: trackID) != nil
     }
 }
 
-extension TrackRepository {
-    private func decodeJSON<T: Decodable>(type: T.Type, from data: Data?) -> T? {
+private extension TrackRepository {
+    func decodeJSON<T: Decodable>(type: T.Type, from data: Data?) -> T? {
         let decoder = JSONDecoder()
         guard let data = data else { return nil }
         //        let str = String(decoding: data, as: UTF8.self)

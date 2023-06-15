@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class LabelWithIconView: UIView {
+    
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -50,7 +51,7 @@ class LabelWithIconView: UIView {
         }
     }
     
-    func addTextLable(text: String) {
+    func addTextLabel(text: String) {
         textLabel.text? += text
     }
 }

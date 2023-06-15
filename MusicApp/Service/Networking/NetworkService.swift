@@ -7,13 +7,10 @@
 
 import Foundation
 
-final class NetworkService
-{
-    let baseURL = Constants.baseURL
-    
+final class NetworkService {
     func request(trackName: String, completion: @escaping (Data?, Error?) -> Void) {
         guard let escapedTrackName = trackName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let url = URL(string: "\(baseURL)\(escapedTrackName)") else {
+              let url = URL(string: "\(Constants.baseURL)\(escapedTrackName)") else {
             let error = Message.Error.errorConverting
             completion(nil, error)
             return
@@ -40,11 +37,6 @@ final class NetworkService
                     switch statusCode {
                     case .success:
                         completion(data, nil)
-//                    case .serviceUnavailable:
-//                        let error = Message.Error.errorHTTP(statusCode: response.statusCode)
-//                        // запрос через алерт
-//                        let task = self.createDataTask(from: request, completion: completion)
-//                        task.resume()
                     default:
                         let error = Message.Error.errorHTTP(statusCode: response.statusCode)
                         completion(nil, error)
@@ -57,4 +49,8 @@ final class NetworkService
             }
         }
     }
+}
+
+fileprivate extension Constants {
+    static let baseURL = "https://itunes.apple.com/search?entity=song&term="
 }

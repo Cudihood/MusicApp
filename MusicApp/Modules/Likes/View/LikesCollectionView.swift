@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-final class LikesCollectionView: UIView
-{
+final class LikesCollectionView: UIView {
+    
     var tapItemHandlet: ((Track?) -> Void)?
     
     private var model: LikesCollectionViewModelProtocol?
@@ -41,16 +41,16 @@ final class LikesCollectionView: UIView
     }
 }
 
-extension LikesCollectionView: UICollectionViewDelegate
-{
+extension LikesCollectionView: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let track = model?.likesTrack[indexPath.item]
         tapItemHandlet?(track)
     }
 }
 
-extension LikesCollectionView: UICollectionViewDataSource
-{
+extension LikesCollectionView: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         model?.likesTrack.count ?? 0
     }
@@ -65,8 +65,8 @@ extension LikesCollectionView: UICollectionViewDataSource
     }
 }
 
-private extension LikesCollectionView
-{
+private extension LikesCollectionView {
+    
     func configure() {
         self.backgroundColor = Constants.Color.background
         self.addSubview(self.collectionView)

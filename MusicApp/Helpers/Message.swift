@@ -7,8 +7,7 @@
 
 import Foundation
 
-enum Message
-{
+enum Message {
     enum Error {
         static let errorConverting = NSError(domain: "com.urlConvert.app",
                                              code: 0,
@@ -30,7 +29,7 @@ enum Message
         case notFound = "Запрашиваемый ресурс не найден."
         case tooManyRequests = "Превышено ограничение на количество запросов."
         case internalServerError = "Внутренняя ошибка сервера."
-        case serviceUnavailable = "Сервис недоступен."
+        case serviceUnavailabel = "Сервис недоступен."
         case unknown = "Неизвестный код ответа."
         
         init(statusCode: Int) {
@@ -50,7 +49,7 @@ enum Message
             case 500:
                 self = .internalServerError
             case 503:
-                self = .serviceUnavailable
+                self = .serviceUnavailabel
             default:
                 self = .unknown
             }

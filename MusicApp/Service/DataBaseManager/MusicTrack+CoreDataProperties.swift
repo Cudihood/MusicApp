@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 
 extension MusicTrack {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<MusicTrack> {
         return NSFetchRequest<MusicTrack>(entityName: "MusicTrack")
     }
@@ -28,7 +27,3 @@ extension MusicTrack {
     @NSManaged public var artworkUrl100: String?
 
 }
-
-//extension MusicTrack : Identifiable {
-//
-//}

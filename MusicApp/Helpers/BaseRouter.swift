@@ -7,8 +7,7 @@
 
 import UIKit
 
-class BaseRouter: NSObject
-{
+class BaseRouter: NSObject {
     weak var viewController: UIViewController?
     
     public init(viewController: UIViewController) {

@@ -7,10 +7,9 @@
 
 import UIKit
 
-final class DetailView: UIView
-{
-    private var viewModel: DetailViewModelProtocol
+final class DetailView: UIView {
     
+    private var viewModel: DetailViewModelProtocol
     private var artistNameLabel = UILabel()
     private var trackNameLabel = UILabel()
     private var artistViewLabel = UILabel()
@@ -51,8 +50,8 @@ final class DetailView: UIView
     }
 }
 
-private extension DetailView
-{
+private extension DetailView {
+    
     func configure() {
         self.backgroundColor = Constants.Color.background
         configureLabels()
@@ -119,7 +118,7 @@ private extension DetailView
         }
     }
     
-    func makeSectionLable(with name: String) -> UILabel {
+    func makeSectionLabel(with name: String) -> UILabel {
         let label = UILabel()
         label.text = name
         label.font = Constants.Font.body
@@ -129,17 +128,15 @@ private extension DetailView
         return label
     }
     
-//    func makeIconForLable(image: UIImage?) ->
-    
     func configureLabels() {
-        artistNameLabel = makeSectionLable(with: "Исполнитель: ")
-        trackNameLabel = makeSectionLable(with: "Песня: ")
-        artistViewLabel = makeSectionLable(with: "Ссылка для просмотра информации об артисте: ")
-        trackViewLabel = makeSectionLable(with: "Ссылка для просмотра информачии о песне: ")
-        previewLabel = makeSectionLable(with: "Ссылка для прослушывания превью трека: ")
-        releaseDateLabel = makeSectionLable(with: "Дата выпуска трека: ")
-        trackTimeLabel = makeSectionLable(with: "Продолжительность трека: ")
-        primaryGenreNameLabel = makeSectionLable(with: "Основной жанр трека: ")
+        artistNameLabel = makeSectionLabel(with: "Исполнитель: ")
+        trackNameLabel = makeSectionLabel(with: "Песня: ")
+        artistViewLabel = makeSectionLabel(with: "Ссылка для просмотра информации об артисте: ")
+        trackViewLabel = makeSectionLabel(with: "Ссылка для просмотра информачии о песне: ")
+        previewLabel = makeSectionLabel(with: "Ссылка для прослушывания превью трека: ")
+        releaseDateLabel = makeSectionLabel(with: "Дата выпуска трека: ")
+        trackTimeLabel = makeSectionLabel(with: "Продолжительность трека: ")
+        primaryGenreNameLabel = makeSectionLabel(with: "Основной жанр трека: ")
     }
     
     func transformInMinute(time: Int?) -> String {

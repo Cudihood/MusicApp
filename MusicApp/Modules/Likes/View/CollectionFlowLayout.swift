@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class CollectionFlowLayout: UICollectionViewFlowLayout
-{
+final class CollectionFlowLayout: UICollectionViewFlowLayout {
+    
     private let countCellsRow: Int
     
     init(countCellsRow: Int, minimumInteritemSpacing: CGFloat = 0, minimumLineSpacing: CGFloat = 0, sectionInset: UIEdgeInsets = .zero) {
@@ -32,8 +32,8 @@ final class CollectionFlowLayout: UICollectionViewFlowLayout
     }
 }
 
-enum CollectionLayout
-{
+enum CollectionLayout {
+    
     static let portrait = CollectionFlowLayout (
         countCellsRow: 3,
         minimumInteritemSpacing: 10,

@@ -9,8 +9,7 @@ import UIKit
 import CoreData
 import Kingfisher
 
-final class TrackDataManager
-{
+final class TrackDataManager {
     private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CoreData")
         container.loadPersistentStores { storeDescription, error in
@@ -26,21 +25,7 @@ final class TrackDataManager
     }()
     
     func saveTrack(track: Track) {
-        let musicTrack = MusicTrack(context: context)
-        musicTrack.trackID = Int64(track.trackID ?? 0)
-        musicTrack.artistName = track.artistName
-        musicTrack.trackName = track.trackName
-        musicTrack.artistViewURL = track.artistViewURL
-        musicTrack.trackViewURL = track.trackViewURL
-        musicTrack.previewURL = track.previewURL
-        //Я должен передавать ссылку или картинку????
-        fetchImageTrack(urlSting: track.artworkUrl100) { data in
-            musicTrack.artwork100 = data
-        }
-        musicTrack.artworkUrl100 = track.artworkUrl100
-        musicTrack.releaseDate = track.releaseDate
-        musicTrack.trackTimeMillis = Int64(track.trackTimeMillis ?? 0)
-        musicTrack.primaryGenreName = track.primaryGenreName
+        createMusicTrack(track: track, context: context)
         
         do {
             try context.save()
@@ -54,18 +39,7 @@ final class TrackDataManager
         do {
             let track = try context.fetch(request)
             let tracksDataArray = track.compactMap { musicTrack in
-                Track(trackID: Int(musicTrack.trackID),
-                      artistName: musicTrack.artistName,
-                      trackName: musicTrack.trackName,
-                      artistViewURL: musicTrack.artistViewURL,
-                      trackViewURL: musicTrack.trackViewURL,
-                      previewURL: musicTrack.previewURL,
-                      artworkUrl60: nil,
-                      artworkUrl100: musicTrack.artworkUrl100,
-                      releaseDate: musicTrack.releaseDate,
-                      trackTimeMillis: Int(musicTrack.trackTimeMillis),
-                      primaryGenreName: musicTrack.primaryGenreName,
-                      artwork100: musicTrack.artwork100)
+                initTrack(musicTrack: musicTrack)
             }
             return tracksDataArray
         } catch let error as NSError {
@@ -108,5 +82,58 @@ final class TrackDataManager
                 completion(nil)
             }
         }
+    }
+    
+    func searchTrackByID(trackID: Int) -> Track? {
+        let request: NSFetchRequest<MusicTrack> = MusicTrack.fetchRequest()
+        request.predicate = NSPredicate(format: "trackID == %d", trackID)
+        request.fetchLimit = 1
+        
+        do {
+            let tracks = try context.fetch(request)
+            if let track = tracks.first {
+                return initTrack(musicTrack: track)
+            } else {
+                return nil
+            }
+        } catch {
+            print("Failed to search track by ID: \(error.localizedDescription)")
+            return nil
+        }
+    }
+}
+
+private extension TrackDataManager {
+    func initTrack(musicTrack: MusicTrack) -> Track {
+        Track(trackID: Int(musicTrack.trackID),
+              artistName: musicTrack.artistName,
+              trackName: musicTrack.trackName,
+              artistViewURL: musicTrack.artistViewURL,
+              trackViewURL: musicTrack.trackViewURL,
+              previewURL: musicTrack.previewURL,
+              artworkUrl60: nil,
+              artworkUrl100: musicTrack.artworkUrl100,
+              releaseDate: musicTrack.releaseDate,
+              trackTimeMillis: Int(musicTrack.trackTimeMillis),
+              primaryGenreName: musicTrack.primaryGenreName,
+              artwork100: musicTrack.artwork100)
+    }
+    
+    func createMusicTrack(track: Track, context: NSManagedObjectContext) {
+        let musicTrack = MusicTrack(context: context)
+        musicTrack.trackID = Int64(track.trackID ?? 0)
+        musicTrack.artistName = track.artistName
+        musicTrack.trackName = track.trackName
+        musicTrack.artistViewURL = track.artistViewURL
+        musicTrack.trackViewURL = track.trackViewURL
+        musicTrack.previewURL = track.previewURL
+        //Я должен передавать ссылку или картинку????
+        fetchImageTrack(urlSting: track.artworkUrl100) { data in
+            musicTrack.artwork100 = data
+        }
+        musicTrack.artworkUrl100 = track.artworkUrl100
+        musicTrack.releaseDate = track.releaseDate
+        musicTrack.trackTimeMillis = Int64(track.trackTimeMillis ?? 0)
+        musicTrack.primaryGenreName = track.primaryGenreName
     }
 }

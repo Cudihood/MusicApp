@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class DetailViewController: UIViewController
-{
+final class DetailViewController: UIViewController {
+    
     private var customView: DetailView
     private var model: DetailViewModelProtocol
     
@@ -44,8 +44,8 @@ final class DetailViewController: UIViewController
     }
 }
 
-private extension DetailViewController
-{
+private extension DetailViewController {
+    
     func configure() {
         self.view.backgroundColor = Constants.Color.background
         likeButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)

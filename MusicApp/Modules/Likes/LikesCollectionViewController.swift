@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class LikesCollectionViewController: UIViewController
-{
+final class LikesCollectionViewController: UIViewController {
+    
     private var viewModel: LikesCollectionViewModelProtocol?
     private var router: LikesCollectionRouterProtocol?
     
@@ -38,8 +38,8 @@ final class LikesCollectionViewController: UIViewController
     }
 }
 
-private extension LikesCollectionViewController
-{
+private extension LikesCollectionViewController {
+    
     func configure() {
         self.title = "Любимые"
         setupTapItemHandlers()

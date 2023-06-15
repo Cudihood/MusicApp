@@ -7,16 +7,16 @@
 
 import UIKit
 
-final class MainTabBarController: UITabBarController
-{
+final class MainTabBarController: UITabBarController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
         let repository = TrackRepository()
-        let searchVC = SearchMusicTableViewController()
-        searchVC.setViewModel(model: SearchMusicTableViewModel(trackRepository: repository))
-        searchVC.setRouter(router: SearchMusicTableRouter(viewController: searchVC))
+        let searchVC = SearchMusicTableViewController.viewController(trackRepository: repository)
+//        searchVC.setViewModel(model: SearchMusicTableViewModel(trackRepository: repository))
+//        searchVC.setRouter(router: SearchMusicTableRouter(viewController: searchVC))
         
         let likesVC = LikesCollectionViewController()
         likesVC.setViewModel(model: LikesCollectionViewModel(trackRepository: repository))

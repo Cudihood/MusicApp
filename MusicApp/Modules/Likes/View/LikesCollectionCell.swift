@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-final class LikesCollectionCell: UICollectionViewCell
-{
+final class LikesCollectionCell: UICollectionViewCell {
+    
     static let reuseIdentifier = "Cell"
     
     private var model: LikesCollectionCellModel? {
@@ -27,21 +27,19 @@ final class LikesCollectionCell: UICollectionViewCell
     }()
     
     private let trackNameLabel: UILabel = {
-        let lable = UILabel()
-        lable.textColor = .black
-        lable.font = Constants.Font.title2
-        lable.textAlignment = .left
-//        lable.numberOfLines = 0
-        return lable
+        let label = UILabel()
+        label.textColor = .black
+        label.font = Constants.Font.title2
+        label.textAlignment = .left
+        return label
     }()
     
     private let artistNameLabel: UILabel = {
-        let lable = UILabel()
-        lable.textColor = .black
-        lable.font = Constants.Font.title3
-        lable.textAlignment = .left
-//        lable.numberOfLines = 0
-        return lable
+        let label = UILabel()
+        label.textColor = .black
+        label.font = Constants.Font.title3
+        label.textAlignment = .left
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -58,8 +56,8 @@ final class LikesCollectionCell: UICollectionViewCell
     }
 }
 
-private extension LikesCollectionCell
-{
+private extension LikesCollectionCell {
+    
     func setCell(model: LikesCollectionCellModel?) {
         self.imageView.image = model?.imageTrack
         self.artistNameLabel.text = model?.artistName

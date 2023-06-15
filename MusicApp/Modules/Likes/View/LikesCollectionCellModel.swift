@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct LikesCollectionCellModel
-{
+struct LikesCollectionCellModel {
+    
     let imageTrack: UIImage?
     let trackName: String?
     let artistName: String?

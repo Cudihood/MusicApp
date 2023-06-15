@@ -29,15 +29,14 @@
 		8F7C525B2A28A80300EC29F1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C525A2A28A80300EC29F1 /* DetailView.swift */; };
 		8F7C525D2A28D71B00EC29F1 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C525C2A28D71B00EC29F1 /* MusicModel.swift */; };
 		8F7C525F2A29FDE300EC29F1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C525E2A29FDE300EC29F1 /* NetworkService.swift */; };
-		8F7C52612A2A050D00EC29F1 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C52602A2A050D00EC29F1 /* NetworkDataFetcher.swift */; };
 		8F7EFA2F2A3743E7006D80C5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7EFA2E2A3743E7006D80C5 /* Message.swift */; };
 		8F7EFA312A3763D4006D80C5 /* AlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7EFA302A3763D4006D80C5 /* AlertFactory.swift */; };
+		8F9D6BCF2A3AFD96009E0529 /* UIImage+addImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9D6BCE2A3AFD96009E0529 /* UIImage+addImage.swift */; };
 		8F9ECE932A26394300EB0255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ECE922A26394300EB0255 /* AppDelegate.swift */; };
 		8F9ECE952A26394300EB0255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ECE942A26394300EB0255 /* SceneDelegate.swift */; };
 		8F9ECE9C2A26394500EB0255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F9ECE9B2A26394500EB0255 /* Assets.xcassets */; };
 		8F9ECE9F2A26394500EB0255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F9ECE9D2A26394500EB0255 /* LaunchScreen.storyboard */; };
 		8F9ECEA72A265C3500EB0255 /* SearchMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ECEA62A265C3500EB0255 /* SearchMusicTableViewController.swift */; };
-		8F9ECEA92A265C8100EB0255 /* SearchMusicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ECEA82A265C8100EB0255 /* SearchMusicTableView.swift */; };
 		8F9ECEAB2A265CD100EB0255 /* SearchMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ECEAA2A265CD100EB0255 /* SearchMusicTableViewCell.swift */; };
 		8F9ECEAD2A265D2700EB0255 /* LikesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ECEAC2A265D2700EB0255 /* LikesCollectionViewController.swift */; };
 		8F9ECEAF2A265D4400EB0255 /* LikesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ECEAE2A265D4400EB0255 /* LikesCollectionView.swift */; };
@@ -67,9 +66,9 @@
 		8F7C525A2A28A80300EC29F1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8F7C525C2A28D71B00EC29F1 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		8F7C525E2A29FDE300EC29F1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		8F7C52602A2A050D00EC29F1 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		8F7EFA2E2A3743E7006D80C5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		8F7EFA302A3763D4006D80C5 /* AlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFactory.swift; sourceTree = "<group>"; };
+		8F9D6BCE2A3AFD96009E0529 /* UIImage+addImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+addImage.swift"; sourceTree = "<group>"; };
 		8F9ECE8F2A26394300EB0255 /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F9ECE922A26394300EB0255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F9ECE942A26394300EB0255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,7 +76,6 @@
 		8F9ECE9E2A26394500EB0255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F9ECEA02A26394500EB0255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F9ECEA62A265C3500EB0255 /* SearchMusicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicTableViewController.swift; sourceTree = "<group>"; };
-		8F9ECEA82A265C8100EB0255 /* SearchMusicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicTableView.swift; sourceTree = "<group>"; };
 		8F9ECEAA2A265CD100EB0255 /* SearchMusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicTableViewCell.swift; sourceTree = "<group>"; };
 		8F9ECEAC2A265D2700EB0255 /* LikesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCollectionViewController.swift; sourceTree = "<group>"; };
 		8F9ECEAE2A265D4400EB0255 /* LikesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCollectionView.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 		8F78D2D72A3344150059DD4E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8F9ECEA82A265C8100EB0255 /* SearchMusicTableView.swift */,
 				8F9ECEAA2A265CD100EB0255 /* SearchMusicTableViewCell.swift */,
 				8F7C52492A2772EE00EC29F1 /* SearchMusicTableViewCellModel.swift */,
 			);
@@ -133,6 +130,7 @@
 				8F78D2EB2A3358930059DD4E /* MusicTrack+CoreDataClass.swift */,
 				8F78D2EC2A3358930059DD4E /* MusicTrack+CoreDataProperties.swift */,
 				8F78D2EF2A33606A0059DD4E /* TrackDataManager.swift */,
+				8F78D2DE2A33486C0059DD4E /* CoreData.xcdatamodeld */,
 			);
 			path = DataBaseManager;
 			sourceTree = "<group>";
@@ -159,8 +157,6 @@
 		8F7A89F12A308664005877D7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8F7C524D2A278D9000EC29F1 /* Constants.swift */,
-				8F7EFA2E2A3743E7006D80C5 /* Message.swift */,
 				8F9ECE9B2A26394500EB0255 /* Assets.xcassets */,
 				8F9ECE9D2A26394500EB0255 /* LaunchScreen.storyboard */,
 			);
@@ -199,12 +195,43 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		8F7EFA322A37652E006D80C5 /* Factory */ = {
+		8F9D6BCC2A3AF45C009E0529 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8F7EFA302A3763D4006D80C5 /* AlertFactory.swift */,
+				8F7C525C2A28D71B00EC29F1 /* MusicModel.swift */,
 			);
-			path = Factory;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8F9D6BCD2A3AFD26009E0529 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8F7C52532A28A19E00EC29F1 /* BaseRouter.swift */,
+				8F7EFA2E2A3743E7006D80C5 /* Message.swift */,
+				8F7C524D2A278D9000EC29F1 /* Constants.swift */,
+				8F7EFA302A3763D4006D80C5 /* AlertFactory.swift */,
+				8F9D6BCE2A3AFD96009E0529 /* UIImage+addImage.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8F9D6BD02A3AFDB9009E0529 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				8F9D6BD12A3AFDCF009E0529 /* TabBar */,
+				8F7C52482A27687700EC29F1 /* Search */,
+				8F7C52472A27686E00EC29F1 /* Likes */,
+				8F7C52552A28A67900EC29F1 /* Detail */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		8F9D6BD12A3AFDCF009E0529 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				8F7C524F2A289B0900EC29F1 /* MainTabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		8F9ECE862A26394300EB0255 = {
@@ -226,18 +253,13 @@
 		8F9ECE912A26394300EB0255 /* MusicApp */ = {
 			isa = PBXGroup;
 			children = (
-				8F78D2F32A346B930059DD4E /* Service */,
+				8F9D6BCC2A3AF45C009E0529 /* Models */,
 				8F7A89F02A308610005877D7 /* Application */,
-				8F7C52532A28A19E00EC29F1 /* BaseRouter.swift */,
-				8F7EFA322A37652E006D80C5 /* Factory */,
-				8F7C524F2A289B0900EC29F1 /* MainTabBarController.swift */,
-				8F7C525C2A28D71B00EC29F1 /* MusicModel.swift */,
-				8F7C52482A27687700EC29F1 /* Search */,
-				8F7C52472A27686E00EC29F1 /* Likes */,
-				8F7C52552A28A67900EC29F1 /* Detail */,
+				8F78D2F32A346B930059DD4E /* Service */,
+				8F9D6BCD2A3AFD26009E0529 /* Helpers */,
+				8F9D6BD02A3AFDB9009E0529 /* Modules */,
 				8F7A89F12A308664005877D7 /* Resources */,
 				8F9ECEA02A26394500EB0255 /* Info.plist */,
-				8F78D2DE2A33486C0059DD4E /* CoreData.xcdatamodeld */,
 			);
 			path = MusicApp;
 			sourceTree = "<group>";
@@ -246,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				8F7C525E2A29FDE300EC29F1 /* NetworkService.swift */,
-				8F7C52602A2A050D00EC29F1 /* NetworkDataFetcher.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -335,10 +356,9 @@
 				8F7C524E2A278D9000EC29F1 /* Constants.swift in Sources */,
 				8F7C525B2A28A80300EC29F1 /* DetailView.swift in Sources */,
 				8F7C52502A289B0900EC29F1 /* MainTabBarController.swift in Sources */,
-				8F7C52612A2A050D00EC29F1 /* NetworkDataFetcher.swift in Sources */,
 				8F78D2F22A336E850059DD4E /* Repository.swift in Sources */,
-				8F9ECEA92A265C8100EB0255 /* SearchMusicTableView.swift in Sources */,
 				8F78D2F52A34A4F00059DD4E /* CollectionFlowLayout.swift in Sources */,
+				8F9D6BCF2A3AFD96009E0529 /* UIImage+addImage.swift in Sources */,
 				8F9ECEB12A265E5500EB0255 /* LikesCollectionCell.swift in Sources */,
 				8F9ECEAF2A265D4400EB0255 /* LikesCollectionView.swift in Sources */,
 				8F78D2E22A334E350059DD4E /* LikesCollectionViewModel.swift in Sources */,

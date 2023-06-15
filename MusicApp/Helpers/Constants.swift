@@ -16,9 +16,6 @@ enum Constants {
         }
     }
     
-    static let baseURL = "https://itunes.apple.com/search?entity=song&term="
-    
-    
     enum Spacing {
         static let standart = 16
         static let little = 6

@@ -8,8 +8,8 @@
 import UIKit
 import Kingfisher
 
-protocol DetailViewModelProtocol
-{
+protocol DetailViewModelProtocol {
+    
     var selectedTrack: Track { get set }
     var trackIsLiked: Bool { get set }
     var trackLikeUpdateHandler: ((Bool) -> Void)? { get set }
@@ -19,8 +19,8 @@ protocol DetailViewModelProtocol
     func fetchImageTrack(completion: @escaping (UIImage?) -> Void)
 }
 
-final class DetailViewModel: DetailViewModelProtocol
-{
+final class DetailViewModel: DetailViewModelProtocol {
+    
     var trackLikeUpdateHandler: ((Bool) -> Void)?
     var selectedTrack: Track
     
