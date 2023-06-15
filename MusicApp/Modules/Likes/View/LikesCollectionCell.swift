@@ -12,13 +12,7 @@ final class LikesCollectionCell: UICollectionViewCell {
     
     static let reuseIdentifier = "Cell"
     
-    private var model: LikesCollectionCellModel? {
-        didSet {
-            setCell(model: model)
-        }
-    }
-    
-    private var imageView: UIImageView = {
+    private var imageTrackView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = Constants.Size.cornerRadius
@@ -26,7 +20,7 @@ final class LikesCollectionCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let trackNameLabel: UILabel = {
+    private let trackLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = Constants.Font.title2
@@ -34,7 +28,7 @@ final class LikesCollectionCell: UICollectionViewCell {
         return label
     }()
     
-    private let artistNameLabel: UILabel = {
+    private let artistLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = Constants.Font.title3
@@ -44,48 +38,76 @@ final class LikesCollectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        configure()
+        setupViews()
+    }
+      
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageTrackView.image = nil
+        trackLabel.text = nil
+        artistLabel.text = nil
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setModel(model: LikesCollectionCellModel?) {
-        self.model = model
+    func configure(with model: LikesCollectionCellModel) {
+        trackLabel.text = model.trackTitle
+        artistLabel.text = model.artistName
+        imageTrackView.image = model.artwork100
     }
 }
 
 private extension LikesCollectionCell {
-    
-    func setCell(model: LikesCollectionCellModel?) {
-        self.imageView.image = model?.imageTrack
-        self.artistNameLabel.text = model?.artistName
-        self.trackNameLabel.text = model?.trackName
-    }
-    
-    func configure() {
+    func setupViews() {
         self.backgroundColor = Constants.Color.background
-        buildUI()
-    }
-    
-    func buildUI() {
-        self.contentView.addSubview(imageView)
-        self.contentView.addSubview(trackNameLabel)
-        self.contentView.addSubview(artistNameLabel)
+        self.contentView.addSubview(imageTrackView)
+        self.contentView.addSubview(trackLabel)
+        self.contentView.addSubview(artistLabel)
         
-        imageView.snp.makeConstraints { make in
+        imageTrackView.snp.makeConstraints { make in
             make.top.trailing.leading.equalToSuperview().inset(Constants.Spacing.standart)
         }
         
-        trackNameLabel.snp.makeConstraints { make in
+        trackLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(Constants.Spacing.little)
-            make.top.equalTo(imageView.snp.bottom).offset(Constants.Spacing.little)
+            make.top.equalTo(imageTrackView.snp.bottom).offset(Constants.Spacing.little)
         }
         
-        artistNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(trackNameLabel.snp.bottom).offset(Constants.Spacing.little)
+        artistLabel.snp.makeConstraints { make in
+            make.top.equalTo(trackLabel.snp.bottom).offset(Constants.Spacing.little)
             make.leading.trailing.equalToSuperview().inset(Constants.Spacing.little)
         }
     }
+//    func setCell(model: LikesCollectionCellModel?) {
+//        self.imageView.image = model?.imageTrack
+//        self.artistNameLabel.text = model?.artistName
+//        self.trackNameLabel.text = model?.trackName
+//    }
+//
+//    func configure() {
+//        self.backgroundColor = Constants.Color.background
+//        buildUI()
+//    }
+//
+//    func buildUI() {
+//        self.contentView.addSubview(imageView)
+//        self.contentView.addSubview(trackNameLabel)
+//        self.contentView.addSubview(artistNameLabel)
+//
+//        imageView.snp.makeConstraints { make in
+//            make.top.trailing.leading.equalToSuperview().inset(Constants.Spacing.standart)
+//        }
+//
+//        trackNameLabel.snp.makeConstraints { make in
+//            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.little)
+//            make.top.equalTo(imageView.snp.bottom).offset(Constants.Spacing.little)
+//        }
+//
+//        artistNameLabel.snp.makeConstraints { make in
+//            make.top.equalTo(trackNameLabel.snp.bottom).offset(Constants.Spacing.little)
+//            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.little)
+//        }
+//    }
 }

@@ -51,6 +51,14 @@ final class SearchMusicTableViewCell: UITableViewCell {
         imageTrackView.image = nil
     }
     
+    func configure(with model: SearchMusicTableViewCellModel) {
+        trackLabel.text = model.trackTitle
+        artistLabel.text = model.artistName
+        imageTrackView.addImageFrom(url: model.artworkUrl60)
+    }
+}
+
+private extension SearchMusicTableViewCell {
     func setupViews() {
         self.backgroundColor = Constants.Color.background
         self.contentView.addSubview(imageTrackView)
@@ -73,11 +81,5 @@ final class SearchMusicTableViewCell: UITableViewCell {
             make.right.equalToSuperview().inset(Constants.Spacing.standart)
             make.bottom.lessThanOrEqualToSuperview().inset(Constants.Spacing.standart)
         }
-    }
-    
-    func configure(with model: SearchMusicTableViewCellModel) {
-        trackLabel.text = model.trackTitle
-        artistLabel.text = model.artistName
-        imageTrackView.addImageFrom(url: model.artworkUrl60)
     }
 }

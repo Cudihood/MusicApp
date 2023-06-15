@@ -19,6 +19,7 @@ enum Message {
         static func errorHTTP(statusCode: Int) -> NSError{
             NSError(domain: "com.network.app", code: statusCode, userInfo: [NSLocalizedDescriptionKey: "\(ResponseСode.init(statusCode: statusCode).rawValue)"])
         }
+        
     }
     
     enum ResponseСode: String {

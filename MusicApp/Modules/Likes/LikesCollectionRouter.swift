@@ -13,7 +13,6 @@ protocol LikesCollectionRouterProtocol {
 }
 
 final class LikesCollectionRouter: BaseRouter, LikesCollectionRouterProtocol {
-    
     func goToDetailsScreen(for track: Track) {
         let detailModel = DetailViewModel(selectedTrack: track)
         let detailVC = DetailViewController(model: detailModel)

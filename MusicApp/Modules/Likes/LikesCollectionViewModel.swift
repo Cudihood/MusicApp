@@ -8,12 +8,10 @@
 import Foundation
 
 protocol LikesCollectionViewModelProtocol {
-    
     var likesTrack: [Track] { get }
 }
 
 final class LikesCollectionViewModel: LikesCollectionViewModelProtocol {
-    
     var likesTrack: [Track] {
         trackRepository.loadTracks() ?? []
     }

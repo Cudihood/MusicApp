@@ -70,8 +70,6 @@ extension SearchMusicTableViewController: UITableViewDataSource {
         cell.configure(with: model)
         return cell
     }
-    
-    
 }
 
 extension SearchMusicTableViewController: UISearchBarDelegate {
@@ -111,7 +109,7 @@ private extension SearchMusicTableViewController {
         }
     }
     
-    private func setupUI() {
+    func setupUI() {
         title = "Поиск"
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Введите название трека"
