@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 final class LikesCollectionCell: UICollectionViewCell {
-    
     static let reuseIdentifier = "Cell"
     
     private var imageTrackView: UIImageView = {
@@ -80,34 +79,4 @@ private extension LikesCollectionCell {
             make.leading.trailing.equalToSuperview().inset(Constants.Spacing.little)
         }
     }
-//    func setCell(model: LikesCollectionCellModel?) {
-//        self.imageView.image = model?.imageTrack
-//        self.artistNameLabel.text = model?.artistName
-//        self.trackNameLabel.text = model?.trackName
-//    }
-//
-//    func configure() {
-//        self.backgroundColor = Constants.Color.background
-//        buildUI()
-//    }
-//
-//    func buildUI() {
-//        self.contentView.addSubview(imageView)
-//        self.contentView.addSubview(trackNameLabel)
-//        self.contentView.addSubview(artistNameLabel)
-//
-//        imageView.snp.makeConstraints { make in
-//            make.top.trailing.leading.equalToSuperview().inset(Constants.Spacing.standart)
-//        }
-//
-//        trackNameLabel.snp.makeConstraints { make in
-//            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.little)
-//            make.top.equalTo(imageView.snp.bottom).offset(Constants.Spacing.little)
-//        }
-//
-//        artistNameLabel.snp.makeConstraints { make in
-//            make.top.equalTo(trackNameLabel.snp.bottom).offset(Constants.Spacing.little)
-//            make.leading.trailing.equalToSuperview().inset(Constants.Spacing.little)
-//        }
-//    }
 }

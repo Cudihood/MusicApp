@@ -15,12 +15,8 @@ final class MainTabBarController: UITabBarController {
         
         let repository = TrackRepository()
         let searchVC = SearchMusicTableViewController.viewController(trackRepository: repository)
-//        searchVC.setViewModel(model: SearchMusicTableViewModel(trackRepository: repository))
-//        searchVC.setRouter(router: SearchMusicTableRouter(viewController: searchVC))
         
         let likesVC = LikesCollectionViewController.viewController(trackRepository: repository)
-//        likesVC.setViewModel(model: LikesCollectionViewModel(trackRepository: repository))
-//        likesVC.setRouter(router: LikesCollectionRouter(viewController: likesVC))
         
         viewControllers = [generateNavigationController(rootViewController: searchVC, title: "Поиск", image: UIImage(systemName: "magnifyingglass")), generateNavigationController(rootViewController: likesVC, title: "Любимые", image: UIImage(systemName: "heart"))]
     }

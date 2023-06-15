@@ -8,7 +8,6 @@
 import UIKit
 
 final class DetailView: UIView {
-    
     private var viewModel: DetailViewModelProtocol
     private var artistNameLabel = UILabel()
     private var trackNameLabel = UILabel()
@@ -70,9 +69,6 @@ private extension DetailView {
         self.stackView.addArrangedSubview(releaseDateLabel)
         self.stackView.addArrangedSubview(trackTimeLabel)
         self.stackView.addArrangedSubview(primaryGenreNameLabel)
-       
-//        let imageView = UIImageView(image: UIImage(systemName: "person"))
-//        artistNameLabel.addSubview(imageView)
         
         self.trackImageVeiw.addSubview(activityIndicator)
         
@@ -124,7 +120,6 @@ private extension DetailView {
         label.font = Constants.Font.body
         label.textColor = Constants.dynamicTextColor
         label.numberOfLines = 2
-//        label.isUserInteractionEnabled = true
         return label
     }
     

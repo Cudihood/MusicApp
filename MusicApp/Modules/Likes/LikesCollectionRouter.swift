@@ -8,7 +8,6 @@
 import Foundation
 
 protocol LikesCollectionRouterProtocol {
-    
     func goToDetailsScreen(for track: Track)
 }
 

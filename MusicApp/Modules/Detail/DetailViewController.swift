@@ -65,7 +65,6 @@ private extension DetailViewController {
     }
     
     @objc func buttonTapped() {
-//        likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         model.likeButtonTapped()
     }
 }

@@ -28,16 +28,9 @@ final class LikesCollectionViewController: UIViewController {
         label.text = "Нет результатов"
         return label
     }()
-    
-//    override func loadView() {
-//        super.loadView()
-//        self.view = customView
-//    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let tracks = viewModel?.likesTrack
-//        configure()
         setupUI()
     }
     
@@ -67,8 +60,6 @@ extension LikesCollectionViewController {
 
 extension LikesCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let track = model?.likesTrack[indexPath.item]
-//        tapItemHandlet?(track)
         router.goToDetailsScreen(for: viewModel.likesTrack[indexPath.item])
         collectionView.deselectItem(at: indexPath, animated: true)
     }
@@ -105,16 +96,4 @@ private extension LikesCollectionViewController {
             make.center.equalToSuperview()
         }
     }
-//    func configure() {
-//        self.title = "Любимые"
-//        setupTapItemHandlers()
-//        customView.setModel(model: viewModel)
-//    }
-//
-//    func setupTapItemHandlers() {
-//        customView.tapItemHandlet = { [weak self] track in
-//            guard let self = self, let track = track else { return }
-//            self.router?.goToDetailsScreen(for: track)
-//        }
-//    }
 }
