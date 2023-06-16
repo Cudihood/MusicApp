@@ -13,8 +13,6 @@
 		8F78D2E02A33486C0059DD4E /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2DE2A33486C0059DD4E /* CoreData.xcdatamodeld */; };
 		8F78D2E22A334E350059DD4E /* LikesCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2E12A334E350059DD4E /* LikesCollectionViewModel.swift */; };
 		8F78D2E42A334E500059DD4E /* LikesCollectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2E32A334E500059DD4E /* LikesCollectionCellModel.swift */; };
-		8F78D2ED2A3358930059DD4E /* MusicTrack+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2EB2A3358930059DD4E /* MusicTrack+CoreDataClass.swift */; };
-		8F78D2EE2A3358930059DD4E /* MusicTrack+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2EC2A3358930059DD4E /* MusicTrack+CoreDataProperties.swift */; };
 		8F78D2F02A33606A0059DD4E /* TrackDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2EF2A33606A0059DD4E /* TrackDataManager.swift */; };
 		8F78D2F22A336E850059DD4E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2F12A336E850059DD4E /* Repository.swift */; };
 		8F78D2F52A34A4F00059DD4E /* CollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2F42A34A4F00059DD4E /* CollectionFlowLayout.swift */; };
@@ -41,6 +39,8 @@
 		8F9ECEAD2A265D2700EB0255 /* LikesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ECEAC2A265D2700EB0255 /* LikesCollectionViewController.swift */; };
 		8F9ECEB12A265E5500EB0255 /* LikesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ECEB02A265E5500EB0255 /* LikesCollectionCell.swift */; };
 		8F9ECEB42A265EFD00EB0255 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8F9ECEB32A265EFD00EB0255 /* SnapKit */; };
+		8FC374F62A3C74B2007B2282 /* MusicTrack+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC374F42A3C74B2007B2282 /* MusicTrack+CoreDataClass.swift */; };
+		8FC374F72A3C74B2007B2282 /* MusicTrack+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC374F52A3C74B2007B2282 /* MusicTrack+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,8 +49,6 @@
 		8F78D2DF2A33486C0059DD4E /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		8F78D2E12A334E350059DD4E /* LikesCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCollectionViewModel.swift; sourceTree = "<group>"; };
 		8F78D2E32A334E500059DD4E /* LikesCollectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCollectionCellModel.swift; sourceTree = "<group>"; };
-		8F78D2EB2A3358930059DD4E /* MusicTrack+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicTrack+CoreDataClass.swift"; sourceTree = "<group>"; };
-		8F78D2EC2A3358930059DD4E /* MusicTrack+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicTrack+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8F78D2EF2A33606A0059DD4E /* TrackDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDataManager.swift; sourceTree = "<group>"; };
 		8F78D2F12A336E850059DD4E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8F78D2F42A34A4F00059DD4E /* CollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFlowLayout.swift; sourceTree = "<group>"; };
@@ -78,6 +76,8 @@
 		8F9ECEAA2A265CD100EB0255 /* SearchMusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicTableViewCell.swift; sourceTree = "<group>"; };
 		8F9ECEAC2A265D2700EB0255 /* LikesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCollectionViewController.swift; sourceTree = "<group>"; };
 		8F9ECEB02A265E5500EB0255 /* LikesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCollectionCell.swift; sourceTree = "<group>"; };
+		8FC374F42A3C74B2007B2282 /* MusicTrack+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MusicTrack+CoreDataClass.swift"; path = "MusicApp/MusicTrack+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		8FC374F52A3C74B2007B2282 /* MusicTrack+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MusicTrack+CoreDataProperties.swift"; path = "MusicApp/MusicTrack+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +124,8 @@
 		8F78D2E62A3358470059DD4E /* DataBaseManager */ = {
 			isa = PBXGroup;
 			children = (
-				8F78D2EB2A3358930059DD4E /* MusicTrack+CoreDataClass.swift */,
-				8F78D2EC2A3358930059DD4E /* MusicTrack+CoreDataProperties.swift */,
+				8FC374F42A3C74B2007B2282 /* MusicTrack+CoreDataClass.swift */,
+				8FC374F52A3C74B2007B2282 /* MusicTrack+CoreDataProperties.swift */,
 				8F78D2EF2A33606A0059DD4E /* TrackDataManager.swift */,
 				8F78D2DE2A33486C0059DD4E /* CoreData.xcdatamodeld */,
 			);
@@ -349,11 +349,11 @@
 			files = (
 				8F78D2DA2A33477F0059DD4E /* LikesCollectionRouter.swift in Sources */,
 				8F9ECEA72A265C3500EB0255 /* SearchMusicTableViewController.swift in Sources */,
-				8F78D2EE2A3358930059DD4E /* MusicTrack+CoreDataProperties.swift in Sources */,
 				8F7C524E2A278D9000EC29F1 /* Constants.swift in Sources */,
 				8F7C525B2A28A80300EC29F1 /* DetailView.swift in Sources */,
 				8F7C52502A289B0900EC29F1 /* MainTabBarController.swift in Sources */,
 				8F78D2F22A336E850059DD4E /* Repository.swift in Sources */,
+				8FC374F72A3C74B2007B2282 /* MusicTrack+CoreDataProperties.swift in Sources */,
 				8F78D2F52A34A4F00059DD4E /* CollectionFlowLayout.swift in Sources */,
 				8F9D6BCF2A3AFD96009E0529 /* UIImage+addImage.swift in Sources */,
 				8F9ECEB12A265E5500EB0255 /* LikesCollectionCell.swift in Sources */,
@@ -369,9 +369,9 @@
 				8F9ECEAD2A265D2700EB0255 /* LikesCollectionViewController.swift in Sources */,
 				8F78D2E02A33486C0059DD4E /* CoreData.xcdatamodeld in Sources */,
 				8F9ECE932A26394300EB0255 /* AppDelegate.swift in Sources */,
+				8FC374F62A3C74B2007B2282 /* MusicTrack+CoreDataClass.swift in Sources */,
 				8F7C52572A28A6BE00EC29F1 /* DetailViewController.swift in Sources */,
 				8F7C525F2A29FDE300EC29F1 /* NetworkService.swift in Sources */,
-				8F78D2ED2A3358930059DD4E /* MusicTrack+CoreDataClass.swift in Sources */,
 				8F9ECE952A26394300EB0255 /* SceneDelegate.swift in Sources */,
 				8F78D2D62A333ACE0059DD4E /* LabelWithIconView.swift in Sources */,
 				8F7EFA312A3763D4006D80C5 /* AlertFactory.swift in Sources */,

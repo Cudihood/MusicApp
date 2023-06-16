@@ -99,19 +99,7 @@ private extension DetailView {
         releaseDateLabel.text? += "\(dateFormatter(releaseDate: track.releaseDate))"
         trackTimeLabel.text? += "\(transformInMinute(time: track.trackTimeMillis))"
         primaryGenreNameLabel.text? += "\(track.primaryGenreName ?? "-")"
-        
-        if let data = track.artwork100 {
-            activityIndicator.stopAnimating()
-            trackImageVeiw.image = UIImage(data: data)
-        } else {
-            viewModel.fetchImageTrack { [weak self] image in
-                guard let self = self else { return }
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                    self.trackImageVeiw.image = image
-                }
-            }
-        }
+        trackImageVeiw.addImageFrom(url: URL(string: track.artworkUrl100 ?? ""))
     }
     
     func makeSectionLabel(with name: String) -> UILabel {

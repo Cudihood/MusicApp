@@ -54,7 +54,7 @@ final class LikesCollectionCell: UICollectionViewCell {
     func configure(with model: LikesCollectionCellModel) {
         trackLabel.text = model.trackTitle
         artistLabel.text = model.artistName
-        imageTrackView.image = model.artwork100
+        imageTrackView.addImageFrom(url: model.artworkUrl100)
     }
 }
 

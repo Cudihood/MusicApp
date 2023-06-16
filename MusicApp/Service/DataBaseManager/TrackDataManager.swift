@@ -63,25 +63,6 @@ final class TrackDataManager {
         }
     }
     
-//    func fetchImageTrack(urlSting: String?, completion: @escaping (Data?) -> Void) {
-//        guard let urlString = urlSting, let url = URL(string: urlString) else {
-//            completion(nil)
-//            return
-//        }
-//        //Тут как загружать
-//        let resours = ImageResource(downloadURL: url)
-//        KingfisherManager.shared.retrieveImage(with: resours) { result in
-//            switch result {
-//            case .success(let imageResult):
-//                let data = imageResult.image.kf.data(format: .unknown, compressionQuality: 1.0)
-//                completion(data)
-//            case .failure(_):
-//                completion(nil)
-//            }
-////        UIImageView.addImageFrom(<#T##self: UIImageView##UIImageView#>)
-//        }
-//    }
-    
     func searchTrackByID(trackID: Int) -> Track? {
         let request: NSFetchRequest<MusicTrack> = MusicTrack.fetchRequest()
         request.predicate = NSPredicate(format: "trackID == %d", trackID)
@@ -109,10 +90,6 @@ private extension TrackDataManager {
         musicTrack.artistViewURL = track.artistViewURL
         musicTrack.trackViewURL = track.trackViewURL
         musicTrack.previewURL = track.previewURL
-        //Я должен передавать ссылку или картинку????
-//        fetchImageTrack(urlSting: track.artworkUrl100) { data in
-//            musicTrack.artwork100 = data
-//        }
         musicTrack.artworkUrl100 = track.artworkUrl100
         musicTrack.releaseDate = track.releaseDate
         musicTrack.trackTimeMillis = Int64(track.trackTimeMillis ?? 0)

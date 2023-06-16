@@ -3,7 +3,6 @@
     <entity name="MusicTrack" representedClassName=".MusicTrack" syncable="YES">
         <attribute name="artistName" optional="YES" attributeType="String"/>
         <attribute name="artistViewURL" optional="YES" attributeType="String"/>
-        <attribute name="artwork100" optional="YES" attributeType="Binary"/>
         <attribute name="artworkUrl100" optional="YES" attributeType="String"/>
         <attribute name="previewURL" optional="YES" attributeType="String"/>
         <attribute name="primaryGenreName" optional="YES" attributeType="String"/>

@@ -16,7 +16,6 @@ protocol DetailViewModelProtocol {
     
     func likeButtonTapped()
     func updateLikeStatus()
-    func fetchImageTrack(completion: @escaping (UIImage?) -> Void)
 }
 
 final class DetailViewModel: DetailViewModelProtocol {
@@ -47,22 +46,5 @@ final class DetailViewModel: DetailViewModelProtocol {
             repository.saveTrack(track: selectedTrack)
         }
         trackIsLiked.toggle()
-    }
-    
-    func fetchImageTrack(completion: @escaping (UIImage?) -> Void) {
-        guard let url = URL(string: selectedTrack.artworkUrl100 ?? "") else {
-            completion(nil)
-            return
-        }
-        
-        let resours = ImageResource(downloadURL: url)
-        KingfisherManager.shared.retrieveImage(with: resours) { result in
-            switch result {
-            case .success(let imageResult):
-                completion(imageResult.image)
-            case .failure(_):
-                completion(nil)
-            }
-        }
     }
 }

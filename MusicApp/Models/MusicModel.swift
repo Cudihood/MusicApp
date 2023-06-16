@@ -24,7 +24,6 @@ struct Track: Codable {
     let releaseDate: String?
     let trackTimeMillis: Int?
     let primaryGenreName: String?
-    let artwork100: Data?
 
     enum CodingKeys: String, CodingKey {
         case trackID = "trackId"
@@ -33,7 +32,6 @@ struct Track: Codable {
         case trackViewURL = "trackViewUrl"
         case previewURL = "previewUrl"
         case artworkUrl60, artworkUrl100, releaseDate, trackTimeMillis, primaryGenreName
-        case artwork100
     }
 }
 
@@ -50,6 +48,5 @@ extension Track {
         releaseDate = musicTrack.releaseDate
         trackTimeMillis = Int(musicTrack.trackTimeMillis)
         primaryGenreName = musicTrack.primaryGenreName
-        artwork100 = musicTrack.artwork100
     }
 }

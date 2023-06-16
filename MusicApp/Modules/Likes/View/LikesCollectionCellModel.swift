@@ -14,8 +14,8 @@ struct LikesCollectionCellModel {
         self.track = track
     }
     
-    var artwork100: UIImage? {
-        return UIImage(data: track?.artwork100 ?? Data())
+    var artworkUrl100: URL? {
+        return URL(string: track?.artworkUrl100 ?? "")
     }
     
     var trackTitle: String {

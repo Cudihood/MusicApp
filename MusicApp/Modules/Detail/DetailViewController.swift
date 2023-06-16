@@ -39,12 +39,6 @@ final class DetailViewController: UIViewController {
         return stackView
     }()
     
-    private let activityIndicator: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView(style: .large)
-        view.color = .systemBlue
-        return view
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -90,16 +84,11 @@ private extension DetailViewController {
         addElementsInStackView()
         view.addSubview(trackImageVeiw)
         view.addSubview(stackView)
-        trackImageVeiw.addSubview(activityIndicator)
         
         trackImageVeiw.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(Constants.Spacing.standart)
             make.centerX.equalToSuperview()
             make.height.width.equalTo(Constants.Size.big)
-        }
-        
-        activityIndicator.snp.makeConstraints { make in
-            make.center.equalToSuperview()
         }
         
         stackView.snp.makeConstraints { make in
@@ -109,7 +98,6 @@ private extension DetailViewController {
     }
     
     func setDataUI() {
-        activityIndicator.startAnimating()
         let track = viewModel.selectedTrack
         artistNameLabel.text? += "\(track.artistName ?? "-")"
         trackNameLabel.text? += "\(track.trackName ?? "-")"
@@ -120,18 +108,7 @@ private extension DetailViewController {
         trackTimeLabel.text? += "\(transformInMinute(time: track.trackTimeMillis))"
         primaryGenreNameLabel.text? += "\(track.primaryGenreName ?? "-")"
         
-        if let data = track.artwork100 {
-            activityIndicator.stopAnimating()
-            trackImageVeiw.image = UIImage(data: data)
-        } else {
-            viewModel.fetchImageTrack { [weak self] image in
-                guard let self = self else { return }
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                    self.trackImageVeiw.image = image
-                }
-            }
-        }
+        trackImageVeiw.addImageFrom(url: URL(string: track.artworkUrl100 ?? ""))
     }
     
     func makeSectionLabel(with name: String) -> UILabel {
