@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8F78D2D42A31FBDD0059DD4E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8F78D2D32A31FBDD0059DD4E /* Kingfisher */; };
-		8F78D2D62A333ACE0059DD4E /* LabelWithIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2D52A333ACE0059DD4E /* LabelWithIconView.swift */; };
 		8F78D2DA2A33477F0059DD4E /* LikesCollectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2D92A33477F0059DD4E /* LikesCollectionRouter.swift */; };
 		8F78D2E02A33486C0059DD4E /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2DE2A33486C0059DD4E /* CoreData.xcdatamodeld */; };
 		8F78D2E22A334E350059DD4E /* LikesCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F78D2E12A334E350059DD4E /* LikesCollectionViewModel.swift */; };
@@ -24,7 +23,6 @@
 		8F7C52542A28A19E00EC29F1 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C52532A28A19E00EC29F1 /* BaseRouter.swift */; };
 		8F7C52572A28A6BE00EC29F1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C52562A28A6BE00EC29F1 /* DetailViewController.swift */; };
 		8F7C52592A28A7F800EC29F1 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C52582A28A7F800EC29F1 /* DetailViewModel.swift */; };
-		8F7C525B2A28A80300EC29F1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C525A2A28A80300EC29F1 /* DetailView.swift */; };
 		8F7C525D2A28D71B00EC29F1 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C525C2A28D71B00EC29F1 /* MusicModel.swift */; };
 		8F7C525F2A29FDE300EC29F1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C525E2A29FDE300EC29F1 /* NetworkService.swift */; };
 		8F7EFA2F2A3743E7006D80C5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7EFA2E2A3743E7006D80C5 /* Message.swift */; };
@@ -44,7 +42,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8F78D2D52A333ACE0059DD4E /* LabelWithIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithIconView.swift; sourceTree = "<group>"; };
 		8F78D2D92A33477F0059DD4E /* LikesCollectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCollectionRouter.swift; sourceTree = "<group>"; };
 		8F78D2DF2A33486C0059DD4E /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		8F78D2E12A334E350059DD4E /* LikesCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -60,7 +57,6 @@
 		8F7C52532A28A19E00EC29F1 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		8F7C52562A28A6BE00EC29F1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8F7C52582A28A7F800EC29F1 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		8F7C525A2A28A80300EC29F1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8F7C525C2A28D71B00EC29F1 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		8F7C525E2A29FDE300EC29F1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8F7EFA2E2A3743E7006D80C5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -98,15 +94,6 @@
 			children = (
 				8F9ECEAA2A265CD100EB0255 /* SearchMusicTableViewCell.swift */,
 				8F7C52492A2772EE00EC29F1 /* SearchMusicTableViewCellModel.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8F78D2D82A33443A0059DD4E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				8F7C525A2A28A80300EC29F1 /* DetailView.swift */,
-				8F78D2D52A333ACE0059DD4E /* LabelWithIconView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,7 +174,6 @@
 			children = (
 				8F7C52562A28A6BE00EC29F1 /* DetailViewController.swift */,
 				8F7C52582A28A7F800EC29F1 /* DetailViewModel.swift */,
-				8F78D2D82A33443A0059DD4E /* View */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -350,7 +336,6 @@
 				8F78D2DA2A33477F0059DD4E /* LikesCollectionRouter.swift in Sources */,
 				8F9ECEA72A265C3500EB0255 /* SearchMusicTableViewController.swift in Sources */,
 				8F7C524E2A278D9000EC29F1 /* Constants.swift in Sources */,
-				8F7C525B2A28A80300EC29F1 /* DetailView.swift in Sources */,
 				8F7C52502A289B0900EC29F1 /* MainTabBarController.swift in Sources */,
 				8F78D2F22A336E850059DD4E /* Repository.swift in Sources */,
 				8FC374F72A3C74B2007B2282 /* MusicTrack+CoreDataProperties.swift in Sources */,
@@ -373,7 +358,6 @@
 				8F7C52572A28A6BE00EC29F1 /* DetailViewController.swift in Sources */,
 				8F7C525F2A29FDE300EC29F1 /* NetworkService.swift in Sources */,
 				8F9ECE952A26394300EB0255 /* SceneDelegate.swift in Sources */,
-				8F78D2D62A333ACE0059DD4E /* LabelWithIconView.swift in Sources */,
 				8F7EFA312A3763D4006D80C5 /* AlertFactory.swift in Sources */,
 				8F7C524C2A2773D700EC29F1 /* SearchMusicTableViewModel.swift in Sources */,
 				8F7C52592A28A7F800EC29F1 /* DetailViewModel.swift in Sources */,
