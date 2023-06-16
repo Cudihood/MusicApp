@@ -50,12 +50,16 @@ final class SearchMusicTableViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension SearchMusicTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         router.goToDetailsScreen(for: viewModel.tracks[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension SearchMusicTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,6 +75,8 @@ extension SearchMusicTableViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - UISearchBarDelegate
 
 extension SearchMusicTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -94,6 +100,8 @@ extension SearchMusicTableViewController {
         return searchMusicVC
     }
 }
+
+// MARK: - Private extension
 
 private extension SearchMusicTableViewController {
     func bindViewModel() {

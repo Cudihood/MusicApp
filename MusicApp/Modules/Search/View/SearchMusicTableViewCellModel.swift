@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 struct SearchMusicTableViewCellModel {
-    
     private let track: Track?
     
     init(track: Track?) {

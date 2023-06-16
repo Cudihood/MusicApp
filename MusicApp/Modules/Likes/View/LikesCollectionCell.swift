@@ -58,6 +58,8 @@ final class LikesCollectionCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Private extension
+
 private extension LikesCollectionCell {
     func setupViews() {
         self.backgroundColor = Constants.Color.background

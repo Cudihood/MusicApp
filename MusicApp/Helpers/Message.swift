@@ -12,6 +12,7 @@ enum Message {
         static let errorConverting = NSError(domain: "com.urlConvert.app",
                                              code: 0,
                                              userInfo: [NSLocalizedDescriptionKey: "Error converting text to URL"])
+        
         static let errorInvalidResponse = NSError(domain: "com.network.app",
                                    code: 0,
                                    userInfo: [NSLocalizedDescriptionKey: "Invalid HTTP Response"])
@@ -19,7 +20,6 @@ enum Message {
         static func errorHTTP(statusCode: Int) -> NSError{
             NSError(domain: "com.network.app", code: statusCode, userInfo: [NSLocalizedDescriptionKey: "\(ResponseСode.init(statusCode: statusCode).rawValue)"])
         }
-        
     }
     
     enum ResponseСode: String {

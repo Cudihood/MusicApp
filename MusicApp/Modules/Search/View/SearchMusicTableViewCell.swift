@@ -58,6 +58,8 @@ final class SearchMusicTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - Private extension
+
 private extension SearchMusicTableViewCell {
     func setupViews() {
         self.backgroundColor = Constants.Color.background

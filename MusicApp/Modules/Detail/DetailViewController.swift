@@ -7,6 +7,17 @@
 
 import UIKit
 
+fileprivate enum DetailVCRows: Int, CaseIterable {
+    case artistName
+    case trackName
+    case releaseDate
+    case trackTimeMillis
+    case primaryGenreName
+    case artistViewURL
+    case trackViewURL
+    case previewURL
+}
+
 final class DetailViewController: UITableViewController {
     var viewModel: DetailViewModelProtocol!
     
@@ -43,44 +54,46 @@ extension DetailViewController {
     }
 }
 
+// MARK: - UITableViewDataSource, UITableViewDelegate
+
 extension DetailViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return DetailVCRows.allCases.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
         cell.selectionStyle = .none
         cell.textLabel?.numberOfLines = 0
-        switch indexPath.row {
-        case 0:
+        switch DetailVCRows(rawValue: indexPath.row) {
+        case .artistName:
             cell.imageView?.image = UIImage(systemName: "person.fill")
             cell.textLabel?.text = "Исполнитель: \(viewModel.selectedTrack.artistName ?? "-")"
-        case 1:
+        case .trackName:
             cell.imageView?.image = UIImage(systemName: "music.note")
             cell.textLabel?.text = "Песня: \(viewModel.selectedTrack.trackName ?? "-")"
-        case 2:
+        case .releaseDate:
             cell.imageView?.image = UIImage(systemName: "calendar")
             cell.textLabel?.text = "Дата выпуска трека: \(dateFormatter(releaseDate: viewModel.selectedTrack.releaseDate))"
-        case 3:
+        case .trackTimeMillis:
             cell.imageView?.image = UIImage(systemName: "timer")
             cell.textLabel?.text = "Продолжительность трека: \(transformInMinute(time: viewModel.selectedTrack.trackTimeMillis))"
-        case 4:
+        case .primaryGenreName:
             cell.imageView?.image = UIImage(systemName: "music.quarternote.3")
             cell.textLabel?.text = "Основной жанр трека: \(viewModel.selectedTrack.primaryGenreName ?? "-")"
-        case 5:
+        case .artistViewURL:
             cell.imageView?.image = UIImage(systemName: "globe")
             let linkText = "Ссылка для просмотра информации об артисте"
             let linkURL = viewModel.selectedTrack.artistViewURL ?? "-"
             let attributedText = createAttributedText(linkText: linkText, linkURL: linkURL)
             cell.textLabel?.attributedText = attributedText
-        case 6:
+        case .trackViewURL:
             cell.imageView?.image = UIImage(systemName: "globe")
             let linkText = "Ссылка для просмотра информачии о песне"
             let linkURL = viewModel.selectedTrack.trackViewURL ?? "-"
             let attributedText = createAttributedText(linkText: linkText, linkURL: linkURL)
             cell.textLabel?.attributedText = attributedText
-        case 7:
+        case .previewURL:
             cell.imageView?.image = UIImage(systemName: "globe")
             let linkText = "Ссылка для прослушывания превью трека"
             let linkURL = viewModel.selectedTrack.previewURL ?? "-"
@@ -89,36 +102,24 @@ extension DetailViewController {
         default:
             break
         }
-
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 5:
+        switch DetailVCRows(rawValue: indexPath.row) {
+        case .artistViewURL:
             openURL(viewModel.selectedTrack.artistViewURL)
-        case 6:
+        case .trackViewURL:
             openURL(viewModel.selectedTrack.trackViewURL)
-        case 7:
+        case .previewURL:
             openURL(viewModel.selectedTrack.previewURL)
         default:
             break
         }
     }
-    
-    private func openURL(_ urlString: String?) {
-        if let url = URL(string: urlString ?? "") {
-            UIApplication.shared.open(url)
-        }
-    }
-
-    private func createAttributedText(linkText: String, linkURL: String) -> NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: linkText)
-        let range = NSRange(location: 0, length: attributedString.length)
-        attributedString.addAttribute(.link, value: linkURL, range: range)
-        return attributedString
-    }
 }
+
+// MARK: - Private extension
 
 private extension DetailViewController {
     func configure() {
@@ -129,11 +130,10 @@ private extension DetailViewController {
     }
     
     func setupTableView() {
-        self.title = viewModel.selectedTrack.trackName
         tableView.backgroundColor = Constants.Color.background
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.tableFooterView = UIView()
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: CGFloat(Constants.Spacing.standart), bottom: 0, right: CGFloat(Constants.Spacing.standart))
+        tableView.separatorStyle = .none
     }
     
     func setupHeader() {
@@ -173,12 +173,25 @@ private extension DetailViewController {
     func dateFormatter(releaseDate: String?) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-
+        
         guard let releaseDate = releaseDate, let date = dateFormatter.date(from: releaseDate) else { return "-" }
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "dd.MM.yyyy, HH:mm"
         let formattedDate = outputFormatter.string(from: date)
         return formattedDate
+    }
+    
+    func openURL(_ urlString: String?) {
+        if let url = URL(string: urlString ?? "") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func createAttributedText(linkText: String, linkURL: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: linkText)
+        let range = NSRange(location: 0, length: attributedString.length)
+        attributedString.addAttribute(.link, value: linkURL, range: range)
+        return attributedString
     }
     
     @objc func buttonTapped() {

@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension MusicTrack {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<MusicTrack> {
         return NSFetchRequest<MusicTrack>(entityName: "MusicTrack")

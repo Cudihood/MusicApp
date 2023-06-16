@@ -26,7 +26,6 @@ final class TrackDataManager {
     
     func saveTrack(track: Track) {
         track.createTrackDB(context: context)
-        
         do {
             try context.save()
         } catch {

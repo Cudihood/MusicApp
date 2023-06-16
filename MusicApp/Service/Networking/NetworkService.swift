@@ -32,8 +32,6 @@ final class NetworkService {
                 
                 if let response = response as? HTTPURLResponse {
                     let statusCode = Message.ResponseСode(statusCode: response.statusCode)
-                    //
-                    //Как тут правильно обрабоать ошибки?
                     switch statusCode {
                     case .success:
                         completion(data, nil)
@@ -41,7 +39,6 @@ final class NetworkService {
                         let error = Message.Error.errorHTTP(statusCode: response.statusCode)
                         completion(nil, error)
                     }
-                //Нужен ли тут else?
                 } else {
                     let error = Message.Error.errorInvalidResponse
                     completion(nil, error)

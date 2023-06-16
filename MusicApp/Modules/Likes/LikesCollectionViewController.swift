@@ -58,12 +58,16 @@ extension LikesCollectionViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+
 extension LikesCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         router.goToDetailsScreen(for: viewModel.likesTrack[indexPath.item])
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension LikesCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -79,6 +83,8 @@ extension LikesCollectionViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+// MARK: - Private extension
 
 private extension LikesCollectionViewController {
     func setupUI() {
