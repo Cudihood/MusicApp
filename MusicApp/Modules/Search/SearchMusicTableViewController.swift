@@ -8,8 +8,8 @@
 import UIKit
 
 final class SearchMusicTableViewController: UIViewController {
-    var router: SearchMusicTableRouterProtocol!
-    var viewModel: SearchMusicTableViewModelProtocol!
+    private var router: SearchMusicTableRouterProtocol!
+    private var viewModel: SearchMusicTableViewModelProtocol!
     
     private var isLoading = false {
         didSet {
@@ -74,7 +74,6 @@ extension SearchMusicTableViewController: UITableViewDataSource {
 
 extension SearchMusicTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //Если ввесли S то будет ошибка 404 и будет отображен активити индикатор и лейбл
         guard let text = searchBar.text else { return }
         viewModel.resetSearch()
         isLoading = true

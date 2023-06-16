@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 // MARK: - Welcome
 struct Results: Codable {
@@ -48,5 +49,19 @@ extension Track {
         releaseDate = musicTrack.releaseDate
         trackTimeMillis = Int(musicTrack.trackTimeMillis)
         primaryGenreName = musicTrack.primaryGenreName
+    }
+    
+    func createTrackDB(context: NSManagedObjectContext) {
+        let musicTrack = MusicTrack(context: context)
+        musicTrack.trackID = Int64(self.trackID ?? 0)
+        musicTrack.artistName = self.artistName
+        musicTrack.trackName = self.trackName
+        musicTrack.artistViewURL = self.artistViewURL
+        musicTrack.trackViewURL = self.trackViewURL
+        musicTrack.previewURL = self.previewURL
+        musicTrack.artworkUrl100 = self.artworkUrl100
+        musicTrack.releaseDate = self.releaseDate
+        musicTrack.trackTimeMillis = Int64(self.trackTimeMillis ?? 0)
+        musicTrack.primaryGenreName = self.primaryGenreName
     }
 }

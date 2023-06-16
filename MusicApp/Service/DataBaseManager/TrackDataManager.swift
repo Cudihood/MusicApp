@@ -25,7 +25,7 @@ final class TrackDataManager {
     }()
     
     func saveTrack(track: Track) {
-        createMusicTrack(track: track, context: context)
+        track.createTrackDB(context: context)
         
         do {
             try context.save()
@@ -78,21 +78,5 @@ final class TrackDataManager {
             print("Failed to search track by ID: \(error.localizedDescription)")
             return nil
         }
-    }
-}
-
-private extension TrackDataManager {
-    func createMusicTrack(track: Track, context: NSManagedObjectContext) {
-        let musicTrack = MusicTrack(context: context)
-        musicTrack.trackID = Int64(track.trackID ?? 0)
-        musicTrack.artistName = track.artistName
-        musicTrack.trackName = track.trackName
-        musicTrack.artistViewURL = track.artistViewURL
-        musicTrack.trackViewURL = track.trackViewURL
-        musicTrack.previewURL = track.previewURL
-        musicTrack.artworkUrl100 = track.artworkUrl100
-        musicTrack.releaseDate = track.releaseDate
-        musicTrack.trackTimeMillis = Int64(track.trackTimeMillis ?? 0)
-        musicTrack.primaryGenreName = track.primaryGenreName
     }
 }
