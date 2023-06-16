@@ -36,3 +36,20 @@ struct Track: Codable {
         case artwork100
     }
 }
+
+extension Track {
+    init(musicTrack: MusicTrack) {
+        trackID = Int(musicTrack.trackID)
+        artistName = musicTrack.artistName
+        trackName = musicTrack.trackName
+        artistViewURL = musicTrack.artistViewURL
+        trackViewURL = musicTrack.trackViewURL
+        previewURL = musicTrack.previewURL
+        artworkUrl60 = nil
+        artworkUrl100 = musicTrack.artworkUrl100
+        releaseDate = musicTrack.releaseDate
+        trackTimeMillis = Int(musicTrack.trackTimeMillis)
+        primaryGenreName = musicTrack.primaryGenreName
+        artwork100 = musicTrack.artwork100
+    }
+}

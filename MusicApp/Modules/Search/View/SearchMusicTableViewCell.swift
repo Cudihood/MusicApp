@@ -54,7 +54,7 @@ final class SearchMusicTableViewCell: UITableViewCell {
     func configure(with model: SearchMusicTableViewCellModel) {
         trackLabel.text = model.trackTitle
         artistLabel.text = model.artistName
-        imageTrackView.addImageFrom(url: model.artworkUrl60)
+        imageTrackView.addImageFrom(url: model.artworkUrl60, options: nil)
     }
 }
 

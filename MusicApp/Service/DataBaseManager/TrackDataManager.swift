@@ -39,7 +39,7 @@ final class TrackDataManager {
         do {
             let track = try context.fetch(request)
             let tracksDataArray = track.compactMap { musicTrack in
-                initTrack(musicTrack: musicTrack)
+                Track(musicTrack: musicTrack)
             }
             return tracksDataArray
         } catch let error as NSError {
@@ -57,42 +57,39 @@ final class TrackDataManager {
             if let track = tracks.first {
                 context.delete(track)
                 try context.save()
-                print("Track with ID \(id) deleted successfully.")
-            } else {
-                print("Track with ID \(id) not found.")
             }
         } catch {
             print("Failed to delete track: \(error.localizedDescription)")
         }
     }
     
-    func fetchImageTrack(urlSting: String?, completion: @escaping (Data?) -> Void) {
-        guard let urlString = urlSting, let url = URL(string: urlString) else {
-            completion(nil)
-            return
-        }
-        
-        let resours = ImageResource(downloadURL: url)
-        KingfisherManager.shared.retrieveImage(with: resours) { result in
-            switch result {
-            case .success(let imageResult):
-                let data = imageResult.image.kf.data(format: .unknown, compressionQuality: 1.0)
-                completion(data)
-            case .failure(_):
-                completion(nil)
-            }
-        }
-    }
+//    func fetchImageTrack(urlSting: String?, completion: @escaping (Data?) -> Void) {
+//        guard let urlString = urlSting, let url = URL(string: urlString) else {
+//            completion(nil)
+//            return
+//        }
+//        //Тут как загружать
+//        let resours = ImageResource(downloadURL: url)
+//        KingfisherManager.shared.retrieveImage(with: resours) { result in
+//            switch result {
+//            case .success(let imageResult):
+//                let data = imageResult.image.kf.data(format: .unknown, compressionQuality: 1.0)
+//                completion(data)
+//            case .failure(_):
+//                completion(nil)
+//            }
+////        UIImageView.addImageFrom(<#T##self: UIImageView##UIImageView#>)
+//        }
+//    }
     
     func searchTrackByID(trackID: Int) -> Track? {
         let request: NSFetchRequest<MusicTrack> = MusicTrack.fetchRequest()
         request.predicate = NSPredicate(format: "trackID == %d", trackID)
         request.fetchLimit = 1
-        
         do {
             let tracks = try context.fetch(request)
             if let track = tracks.first {
-                return initTrack(musicTrack: track)
+                return Track(musicTrack: track)
             } else {
                 return nil
             }
@@ -104,21 +101,6 @@ final class TrackDataManager {
 }
 
 private extension TrackDataManager {
-    func initTrack(musicTrack: MusicTrack) -> Track {
-        Track(trackID: Int(musicTrack.trackID),
-              artistName: musicTrack.artistName,
-              trackName: musicTrack.trackName,
-              artistViewURL: musicTrack.artistViewURL,
-              trackViewURL: musicTrack.trackViewURL,
-              previewURL: musicTrack.previewURL,
-              artworkUrl60: nil,
-              artworkUrl100: musicTrack.artworkUrl100,
-              releaseDate: musicTrack.releaseDate,
-              trackTimeMillis: Int(musicTrack.trackTimeMillis),
-              primaryGenreName: musicTrack.primaryGenreName,
-              artwork100: musicTrack.artwork100)
-    }
-    
     func createMusicTrack(track: Track, context: NSManagedObjectContext) {
         let musicTrack = MusicTrack(context: context)
         musicTrack.trackID = Int64(track.trackID ?? 0)
@@ -128,9 +110,9 @@ private extension TrackDataManager {
         musicTrack.trackViewURL = track.trackViewURL
         musicTrack.previewURL = track.previewURL
         //Я должен передавать ссылку или картинку????
-        fetchImageTrack(urlSting: track.artworkUrl100) { data in
-            musicTrack.artwork100 = data
-        }
+//        fetchImageTrack(urlSting: track.artworkUrl100) { data in
+//            musicTrack.artwork100 = data
+//        }
         musicTrack.artworkUrl100 = track.artworkUrl100
         musicTrack.releaseDate = track.releaseDate
         musicTrack.trackTimeMillis = Int64(track.trackTimeMillis ?? 0)

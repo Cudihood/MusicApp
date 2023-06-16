@@ -13,8 +13,7 @@ protocol SearchMusicTableRouterProtocol {
 
 final class SearchMusicTableRouter: BaseRouter, SearchMusicTableRouterProtocol {
     func goToDetailsScreen(for track: Track) {
-        let detailModel = DetailViewModel(selectedTrack: track)
-        let detailVC = DetailViewController(model: detailModel)
+        let detailVC = DetailViewController.viewController(selectedTrack: track)
         viewController?.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

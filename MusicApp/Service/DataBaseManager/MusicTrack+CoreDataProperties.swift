@@ -25,5 +25,5 @@ extension MusicTrack {
     @NSManaged public var trackTimeMillis: Int64
     @NSManaged public var trackViewURL: String?
     @NSManaged public var artworkUrl100: String?
-
 }
+

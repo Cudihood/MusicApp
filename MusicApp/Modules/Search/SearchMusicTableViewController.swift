@@ -76,6 +76,7 @@ extension SearchMusicTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //Если ввесли S то будет ошибка 404 и будет отображен активити индикатор и лейбл
         guard let text = searchBar.text else { return }
+        viewModel.resetSearch()
         isLoading = true
         viewModel.fetchTrack(trackName: text)
     }
