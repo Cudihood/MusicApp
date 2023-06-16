@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 protocol DetailViewModelProtocol {
-    
     var selectedTrack: Track { get set }
     var trackIsLiked: Bool { get set }
     var trackLikeUpdateHandler: ((Bool) -> Void)? { get set }
@@ -19,7 +18,6 @@ protocol DetailViewModelProtocol {
 }
 
 final class DetailViewModel: DetailViewModelProtocol {
-    
     var trackLikeUpdateHandler: ((Bool) -> Void)?
     var selectedTrack: Track
     
