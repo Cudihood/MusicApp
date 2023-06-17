@@ -21,7 +21,7 @@ final class LikesCollectionCell: UICollectionViewCell {
     
     private let trackLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = Constants.dynamicTextColor
         label.font = Constants.Font.title2
         label.textAlignment = .left
         return label
@@ -29,7 +29,7 @@ final class LikesCollectionCell: UICollectionViewCell {
     
     private let artistLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = Constants.dynamicTextColor
         label.font = Constants.Font.title3
         label.textAlignment = .left
         return label
